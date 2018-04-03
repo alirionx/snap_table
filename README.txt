@@ -42,6 +42,6 @@ chown -R www-data:www-data snap_table<br>
 *1 = Table ID
 *test_target = ID of the HTML Container
 *insert_ro = read only table
-<br><br>
+<br><br> 
 <h2>Additionally you can call the content (only) of an table in json format via the api:</h2>
 e.g. http://example.com/yourapp/snap_table/snap_table.php?function=table_content_call&table_id=1
