@@ -102,7 +102,7 @@
 							
 							var dd_ary		= "";
 							
-							if( cell_type == "dd_cus" ){ dd_ary = obj.dd_cus[def_val]; }
+							if( cell_type == "dd_cus" || cell_type == "dd_fk"  ){ dd_ary = obj.dd_fk[def_val]; }
 							
 							var table_td = table_build[ cell_type ]( cell_align , cell_width , cell_val , cell_ph , json_path , json_part , row_id , col_name , dd_ary );
 							table_tr.appendChild(table_td);

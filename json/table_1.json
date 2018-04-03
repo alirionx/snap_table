@@ -3,43 +3,55 @@
     "json_path": "json\/table_1.json",
     "content": {
         "1": {
-            "country": "de",
-            "city": "mch",
+            "country": "Germany",
+            "city": "Munich",
             "street": "Funfair Drive",
             "name": "The Highroller",
             "vip": "true",
             "id": 1,
-            "private": "false"
+            "private": "false",
+            "stadt": "Munich"
         },
         "2": {
-            "country": "au",
-            "city": "wn",
+            "country": "Austria",
+            "city": "Vienna",
             "street": "Zircus Road",
             "name": "Pennywise the Clown",
             "vip": "true",
             "id": 2,
-            "private": "false"
+            "private": "false",
+            "stadt": "Stuttgart"
         },
         "3": {
-            "country": "ch",
-            "city": "ben",
+            "country": "Swiss",
+            "city": "Bern",
             "street": "Matrix Square",
             "name": "Mr Smith",
             "vip": "",
             "id": 3,
-            "private": "true"
+            "private": "false",
+            "stadt": "Frankfurt"
+        },
+        "4": {
+            "country": "France",
+            "city": "Bordeaux",
+            "street": "Deep Web Boulevard",
+            "name": "Mr Robot",
+            "private": "true",
+            "stadt": "Frankfurt",
+            "id": 4
         }
     },
     "def": {
         "country": {
-            "type": "dd_cus",
+            "type": "dd_fk",
             "align": "left",
             "width": "120px",
             "hltxt": "Country",
             "placeholder": "null"
         },
         "city": {
-            "type": "dd_cus",
+            "type": "dd_fk",
             "align": "left",
             "width": "120px",
             "hltxt": "City",
@@ -65,29 +77,6 @@
             "width": "",
             "hltxt": "Private",
             "placeholder": "null"
-        }
-    },
-    "dd_cus": {
-        "city": {
-            "stg": "Stuttgart",
-            "mch": "Munich",
-            "hh": "Hamburg",
-            "wn": "Vienna",
-            "ben": "Bern"
-        },
-        "country": {
-            "de": "Germany",
-            "au": "Austria",
-            "ch": "Swiss"
-        }
-    },
-    "dd_def": {
-        "1": {
-            "country": "de",
-            "city": "mch",
-            "street": "aa",
-            "name": "aa",
-            "vip": "true"
         }
     }
 }

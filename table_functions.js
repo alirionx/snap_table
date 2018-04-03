@@ -239,7 +239,7 @@
 
 //-------------------------------------------------------------
 
-	table_build["dd_cus"] = function( cell_align , cell_width , cell_val , cell_ph , json_path , json_part , row_id , col_name , dd_ary ){
+	table_build["dd_fk"] = function( cell_align , cell_width , cell_val , cell_ph , json_path , json_part , row_id , col_name , dd_ary ){
 		
 		//---------------------------
 		

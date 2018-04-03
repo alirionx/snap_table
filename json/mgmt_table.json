@@ -37,6 +37,18 @@
             "name": "addresses",
             "app": "web office",
             "owner": "me"
+        },
+        "2": {
+            "id": 2,
+            "name": "cities",
+            "app": "web office",
+            "owner": "me too"
+        },
+        "3": {
+            "id": 3,
+            "name": "countries",
+            "app": "web office",
+            "owner": "me as well"
         }
     }
 }

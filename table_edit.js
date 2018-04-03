@@ -94,7 +94,7 @@
 							
 							var dd_ary		= "";
 							
-							if( cell_type == "dd_cus" ){ dd_ary = obj.dd_cus[def_val]; }
+							if( cell_type == "dd_cus" ){ cell_type = 'dd_fk'; dd_ary = obj.dd_cus[def_val]; }
 							
 							var table_td = table_build[ cell_type ]( cell_align , cell_width , cell_val , cell_ph , json_path , json_part , row_id , col_name , dd_ary );
 							table_tr.appendChild(table_td);
@@ -161,104 +161,7 @@
 			
 		//---------------------------
 		
-	
 	//----------------------------------------------------------------
-		
-		//---------------------------		
-		
-			var def_table = document.createElement("TABLE");
-				def_table.classList.add("mgmt_table");
-					
-				var def_tr = document.createElement("TR");
-				def_table.appendChild(def_tr);
-					
-			//--------------------
-				
-				for( var prop in obj.dd_cols ){
-					
-					var def_th = document.createElement("TH");
-					def_tr.appendChild(def_th);
-						def_th.style.textAlign = "left";
-						def_th.innerHTML = obj.dd_cols[prop];
-				}
-				
-			//--------------------
-				
-				for( var prop in obj.dd_def ){
-					
-					var def_tr = document.createElement("TR");
-					def_table.appendChild(def_tr);
-					
-					//--------------------
-					
-						var cell_type 	= "dd_cus";
-						var cell_align 	= "left";
-						var cell_width 	= "";
-						var cell_val 	= obj.dd_def[prop].name;
-						var cell_ph		= "";
-						var row_id 		= prop;
-						var col_name 	= "name";
-							
-						var dd_ary		= [];
-						for( var col_prop in obj.content ){
-							dd_ary[ obj.content[col_prop].name ] = obj.content[col_prop].hltxt;
-						}
-											
-						var def_td = table_build[ cell_type ]( cell_align , cell_width , cell_val , cell_ph , json_path , "dd_def" , row_id , col_name , dd_ary );
-						def_tr.appendChild(def_td);
-					
-					//--------------------
-					
-						var cell_type 	= "input";
-						var cell_align 	= "left";
-						var cell_width 	= "";
-						var cell_val 	= obj.dd_def[prop].key;
-						var cell_ph		= "";
-						var row_id 		= prop;
-						var col_name 	= "key";
-							
-						var dd_ary		= "";
-								
-						var def_td = table_build[ cell_type ]( cell_align , cell_width , cell_val , cell_ph , json_path , "dd_def" , row_id , col_name , dd_ary );
-						def_tr.appendChild(def_td);
-					
-					//--------------------
-					
-						var cell_type 	= "input";
-						var cell_align 	= "left";
-						var cell_width 	= "";
-						var cell_val 	= obj.dd_def[prop].val;
-						var cell_ph		= "";
-						var row_id 		= prop;
-						var col_name 	= "val";
-							
-						var dd_ary		= "";
-								
-						var def_td = table_build[ cell_type ]( cell_align , cell_width , cell_val , cell_ph , json_path , "dd_def" , row_id , col_name , dd_ary );
-						def_tr.appendChild(def_td);
-					
-					//--------------------
-					
-				}
-				
-			//--------------------
-				
-				var row_add = table_build["row_add"]( json_path , "dd_def" , "dd_cols" );
-				def_table.appendChild( row_add );
-			
-			//--------------------
-			
-				
-		//---------------------------
-		
-			target_domel.appendChild(def_table);
-			
-		//---------------------------
-			
-	//----------------------------------------------------------------
-		
-		
-		
 		
 		//---------------------------
 		
@@ -289,7 +192,6 @@
 					}
 		
 		//---------------------------
-		
 	}
 		
 //-------------------------------------------------------------

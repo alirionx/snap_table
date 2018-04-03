@@ -37,8 +37,12 @@
 	
 	//$json_dir 	= $cur_dir . 'json/';
 	$json_dir 		= 'json/';
+	
 	$mgmt_file_name = 'mgmt_table.json';
 	$mgmt_file_path = $json_dir . $mgmt_file_name;
+	
+	$fk_file_name 	= 'fk_table.json';
+	$fk_file_path 	= $json_dir . $fk_file_name;
 	
 	//echo $json_dir;
 	
@@ -98,10 +102,8 @@
 
 	function mgmt_table_call( $POST ){
 		
-		$json_dir = $GLOBALS['json_dir'];
-		
 		$post_ary['target_domid'] 	= $POST['target_domid']; 
-		$post_ary['table_path'] 	= $json_dir . 'mgmt_table.json' ;
+		$post_ary['table_path'] 	= $GLOBALS['mgmt_file_path'];
 		snap_table_do( $post_ary );
 	}
 	
@@ -166,6 +168,64 @@
 			$obj_in = json_decode($json_in , true);
 			
 			$obj_in['target_domid'] = $target_domid;
+			
+		//-----------------------------------
+			
+			foreach( $obj_in['def'] as $fk_target_col => $is_def ){
+				
+				if( $is_def['type'] == 'dd_fk' ){
+					
+				//----------------------------
+				
+					$fk_file_path 	= $GLOBALS['fk_file_path'];
+					$json_in_2 		= file_get_contents( $fk_file_path );
+					$obj_in_2 		= json_decode($json_in_2 , true);
+					
+					$found = false;
+					
+					foreach( $obj_in_2['content'] as $is_dd_fk ){
+						
+						if( $is_dd_fk['name'] == $fk_target_col ){
+						
+							$fk_table_id 	= $is_dd_fk['table'];
+							$fk_source_col 	= $is_dd_fk['column'];
+							
+							$found = true;
+						}
+					}
+					if( $found == false ){
+						$obj_in['dd_fk'][$fk_target_col] = [];
+					}
+					else{
+						
+						$json_dir		= $GLOBALS['json_dir'];
+						$src_file_path 	= $json_dir . 'table_' . $fk_table_id . '.json';
+						$json_in_2 		= file_get_contents( $src_file_path );
+						$obj_in_2 		= json_decode($json_in_2 , true);
+						
+						$val_ary		= array();
+						
+						foreach( $obj_in_2['content'] as $is_entry ){
+							
+							array_push( $val_ary , $is_entry[$fk_source_col] );
+							
+							$val_ary_uni = array_unique( $val_ary );
+							//$val_ary_srt = sort($val_ary_uni);
+						}
+						
+						$i = 1;
+						
+						foreach( $val_ary_uni as $is_entry ){
+							
+							$obj_in['dd_fk'][$fk_target_col][ $is_entry ] = $is_entry;
+							$i++;
+						}
+					}
+				//----------------------------
+				}
+			}
+			
+		//-----------------------------------		
 			
 			$json_out = json_encode($obj_in, JSON_PRETTY_PRINT);
 		
@@ -358,8 +418,11 @@
 		//---Delete JSON FIle and Check------
 			
 			$json_dir = $GLOBALS['json_dir'];
-			$filepath = $json_dir . 'table_' . $row_id . '.json';
 			
+			$filepath = $json_dir . 'table_' . $row_id . '.json';
+			unlink( $filepath );
+			
+			$filepath = $json_dir . 'def_' . $row_id . '.json';
 			unlink( $filepath );
 
 			if( file_exists( $filepath ) ) {
@@ -468,25 +531,13 @@
 				$obj_in['dd_cus']['type']['static'] 	= 'static';
 				$obj_in['dd_cus']['type']['input'] 		= 'text input';
 				$obj_in['dd_cus']['type']['checkbox'] 	= 'checkbox';
-				$obj_in['dd_cus']['type']['dd_cus'] 	= 'Custom Dropdown';
-				$obj_in['dd_cus']['type']['dd_fk'] 		= 'Foreign Key Dropdown';
+				$obj_in['dd_cus']['type']['dd_fk'] 		= 'foreign key dropdown';
 				
 				$obj_in['dd_cus']['align'] = array();
 				$obj_in['dd_cus']['align'][""] 			= 'please select';
 				$obj_in['dd_cus']['align']['left'] 		= 'left';
 				$obj_in['dd_cus']['align']['center'] 	= 'center';
 				$obj_in['dd_cus']['align']['right'] 	= 'right';
-				
-			//-----------------------------
-				
-				$obj_in['dd_def'] = array();
-				
-				$obj_in['dd_cols'] = array();
-				$obj_in['dd_cols']['name'] 	= 'Column Name';
-				$obj_in['dd_cols']['key'] 	= 'Dropdown Key';
-				$obj_in['dd_cols']['val'] 	= 'Dropdown Value';
-				
-				$obj_in['dd_def'] = array();
 				
 			//-----------------------------
 				
@@ -538,7 +589,7 @@
 	}
 
 //-----------------------------------------------------------------------------
-
+	
 
 
 //--------Create and Edit a Table Definition-----------------------------------
@@ -580,18 +631,6 @@
 				}
 			
 			//------------------
-				
-				if( isset( $def_obj_in['dd_def'] )){
-				
-					$target_obj_in['dd_cus'] = array();
-				
-					foreach( $def_obj_in['dd_def'] as $val_ary ){
-						
-						$target_obj_in['dd_cus'][ $val_ary['name'] ] [ $val_ary['key'] ] = $val_ary['val'];
-					}
-				}
-			
-			//------------------
 			
 			
 			//---Write to Target JSON----------------------------
@@ -609,15 +648,118 @@
 	
 //-----------------------------------------------------------------------------
 
+	
+
+//--------Foreign Key Table Call-----------------------------------------------
+		
+	function fk_table_call( $POST ){
+		
+		//---Check Output Format-------------
+		
+			if( isset( $POST['output'] ) ){
+				
+				$output = $POST['output'];
+			}
+			else{
+				$output = 'json';
+			}
+		
+		//-----------------------------------
+			
+			$target_domid = $POST['target_domid'];
+			
+		//---Open JSON File------------------
+			
+			$fk_file_path 	= $GLOBALS['fk_file_path'];
+			$json_in = file_get_contents( $fk_file_path );
+		
+		//---Check JSON Consistence----------
+			
+			if( !json_decode($json_in) ){
+				
+				header("HTTP/1.1 404 Not Found");
+				echo 'JSON File not found or corrupt.';
+				exit;
+			}
+			
+		//-----------------------------------
+			
+			$obj_in = json_decode($json_in , true);
+			
+			$obj_in['target_domid'] = $target_domid;
+			
+		
+		//---Open Second JSON File-----------
+			
+			$mgmt_file_path = $GLOBALS['mgmt_file_path'];
+			$json_in_2 = file_get_contents( $mgmt_file_path );
+		
+		//---Check JSON Consistence----------
+			
+			if( !json_decode($json_in) ){
+				
+				header("HTTP/1.1 404 Not Found");
+				echo 'JSON File not found or corrupt.';
+				exit;
+			}
+			
+		//-----------------------------------
+			
+			$obj_in_2 = json_decode($json_in_2 , true);
+			
+			$obj_in['dd_fk'] = array();
+			$obj_in['dd_fk']['table'] = array();
+			
+			foreach( $obj_in_2['content'] as $is_table ){
+				
+				$obj_in['dd_cus']['table'][ $is_table['id'] ] = $is_table['name'];
+				
+			}
+			
+		//-----------------------------------	
+			
+			$json_out = json_encode($obj_in, JSON_PRETTY_PRINT);
+		
+		//---Print Output--------------------
+			
+			$output_function = 'echo_json_'.$output;
+			$output_function($json_out);
+			
+		//-----------------------------------
+	}	
+	
+//-----------------------------------------------------------------------------
+	
+	
 
 
 //--------Call Content from File-----------------------------------------------
 		
 	function content_call( $POST ){
-		
+
 		$file_path = $POST['file_path'];
 		
 		if( $file_content = file_get_contents( $file_path ) ){
+			
+			echo $file_content;
+		}
+		else{
+			header("HTTP/1.1 404 Not Found");
+			echo 'File not found or corrupt.';
+			exit;
+			
+		}
+	}	
+	
+//-----------------------------------------------------------------------------
+		
+	function table_content_call( $POST ){
+
+		$json_dir = $GLOBALS['json_dir'];
+		$table_id = $POST['table_id'];
+		$table_file_path = $json_dir . 'table_' . $table_id . '.json';
+		
+		if( $file_content = file_get_contents( $table_file_path ) ){
 			
 			echo $file_content;
 		}

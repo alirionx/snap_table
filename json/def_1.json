@@ -4,7 +4,7 @@
     "content": {
         "1": {
             "name": "country",
-            "type": "dd_cus",
+            "type": "dd_fk",
             "align": "left",
             "width": "120px",
             "hltxt": "Country",
@@ -13,7 +13,7 @@
         },
         "2": {
             "name": "city",
-            "type": "dd_cus",
+            "type": "dd_fk",
             "align": "left",
             "width": "120px",
             "hltxt": "City",
@@ -98,7 +98,6 @@
             "static": "static",
             "input": "text input",
             "checkbox": "checkbox",
-            "dd_cus": "Custom Dropdown",
             "dd_fk": "Foreign Key Dropdown"
         },
         "align": {
@@ -106,61 +105,6 @@
             "left": "left",
             "center": "center",
             "right": "right"
-        }
-    },
-    "dd_cols": {
-        "name": "Column Name",
-        "key": "Dropdown Key",
-        "val": "Dropdown Value"
-    },
-    "dd_def": {
-        "1": {
-            "name": "city",
-            "key": "stg",
-            "val": "Stuttgart",
-            "id": 1
-        },
-        "2": {
-            "name": "city",
-            "key": "mch",
-            "val": "Munich",
-            "id": 2
-        },
-        "3": {
-            "name": "city",
-            "key": "hh",
-            "val": "Hamburg",
-            "id": 3
-        },
-        "4": {
-            "name": "country",
-            "key": "de",
-            "val": "Germany",
-            "id": 4
-        },
-        "5": {
-            "name": "country",
-            "key": "au",
-            "val": "Austria",
-            "id": 5
-        },
-        "6": {
-            "name": "country",
-            "key": "ch",
-            "val": "Swiss",
-            "id": 6
-        },
-        "7": {
-            "name": "city",
-            "key": "wn",
-            "val": "Vienna",
-            "id": 7
-        },
-        "8": {
-            "name": "city",
-            "key": "ben",
-            "val": "Bern",
-            "id": 8
         }
     }
 }
