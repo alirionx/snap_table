@@ -11,6 +11,7 @@ A web-based table editor. Easy to implement into your WebApps
 <h3>The code ( tool folder => snap_table ) can be cloned into your web application base directory via git</h3>
 git clone https://github.com/alirionx/snap_table.git<br>
 chown www-data:www-data snap_table<br>
+and brows the clones directory e.g. http://example.com/yourapp/snap_table/<br>
 <ul>
 <li>You can simply define and test a table via the Management Web Tool ( Menue => Tables )</li>
 <li>It is possible to define custom dropdowns as well as linked dropdowns ( Menue => Tables )</li>
