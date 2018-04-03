@@ -1,0 +1,44 @@
+{
+    "table": "mgmt_table",
+    "json_path": "json\/mgmt_table.json",
+    "def": {
+        "id": {
+            "type": "static",
+            "align": "center",
+            "width": "60px",
+            "hltxt": "ID"
+        },
+        "name": {
+            "type": "input",
+            "align": "left",
+            "width": "",
+            "hltxt": "Table Name"
+        },
+        "app": {
+            "type": "input",
+            "align": "left",
+            "width": "",
+            "hltxt": "Assigned App"
+        },
+        "owner": {
+            "type": "input",
+            "align": "left",
+            "width": "",
+            "hltxt": "Owner"
+        }
+    },
+    "content": {
+        "666": {
+            "id": "666",
+            "name": "addresses",
+            "app": "collab",
+            "owner": "ich bins"
+        },
+        "667": {
+            "id": "667",
+            "name": "tasks",
+            "app": "pms unso",
+            "owner": "ich auch"
+        }
+    }
+}

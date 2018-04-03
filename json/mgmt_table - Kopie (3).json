@@ -1,0 +1,72 @@
+{
+    "table": "mgmt_table",
+    "json_path": "json\/mgmt_table.json",
+    "def": {
+        "id": {
+            "type": "static",
+            "align": "center",
+            "width": "60px",
+            "hltxt": "ID",
+			"placeholder": ""
+        },
+        "name": {
+            "type": "input",
+            "align": "left",
+            "width": "",
+            "hltxt": "Table Name",
+			"placeholder": ""
+        },
+        "app": {
+            "type": "input",
+            "align": "left",
+            "width": "",
+            "hltxt": "Assigned App",
+			"placeholder": ""
+        },
+        "owner": {
+            "type": "input",
+            "align": "left",
+            "width": "",
+            "hltxt": "Owner",
+			"placeholder": "Owner Name"
+        }
+    },
+    "content": {
+        "1": {
+            "id": "1",
+            "name": "addresses",
+            "app": "collab",
+            "owner": "ich bins"
+        },
+        "2": {
+            "id": "2",
+            "name": "tasks",
+            "app": "Projects",
+            "owner": "ich auch"
+        },
+        "3": {
+            "id": "3",
+            "name": "bugs",
+            "app": "BugList",
+            "owner": "ich immer noch"
+        },
+        "4": {
+            "id": "4",
+            "name": "appointments",
+            "app": "Meeting List",
+            "owner": "ich immer auch noch"
+        },
+        "5": {
+            "id": 5,
+            "name": "tools",
+            "app": "Software Management",
+            "owner": "ich jetzt erst recht"
+        },
+        "6": {
+            "id": 6,
+            "name": "palim",
+            "app": "eine Flasche",
+            "owner": "Pommes"
+        }
+    }
+}

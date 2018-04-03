@@ -1,0 +1,93 @@
+{
+    "table": "addresses",
+    "json_path": "json\/table_1.json",
+    "content": {
+        "1": {
+            "country": "de",
+            "city": "mch",
+            "street": "Funfair Drive",
+            "name": "The Highroller",
+            "vip": "true",
+            "id": 1,
+            "private": "false"
+        },
+        "2": {
+            "country": "au",
+            "city": "wn",
+            "street": "Zircus Road",
+            "name": "Pennywise the Clown",
+            "vip": "true",
+            "id": 2,
+            "private": "false"
+        },
+        "3": {
+            "country": "ch",
+            "city": "ben",
+            "street": "Matrix Square",
+            "name": "Mr Smith",
+            "vip": "",
+            "id": 3,
+            "private": "true"
+        }
+    },
+    "def": {
+        "country": {
+            "type": "dd_cus",
+            "align": "left",
+            "width": "120px",
+            "hltxt": "Country",
+            "placeholder": "null"
+        },
+        "city": {
+            "type": "dd_cus",
+            "align": "left",
+            "width": "120px",
+            "hltxt": "City",
+            "placeholder": "null"
+        },
+        "street": {
+            "type": "input",
+            "align": "left",
+            "width": "",
+            "hltxt": "Street",
+            "placeholder": "Enter Street and number"
+        },
+        "name": {
+            "type": "input",
+            "align": "left",
+            "width": "",
+            "hltxt": "Customer Name",
+            "placeholder": "Contact Name"
+        },
+        "private": {
+            "type": "checkbox",
+            "align": "center",
+            "width": "",
+            "hltxt": "Private",
+            "placeholder": "null"
+        }
+    },
+    "dd_cus": {
+        "city": {
+            "stg": "Stuttgart",
+            "mch": "Munich",
+            "hh": "Hamburg",
+            "wn": "Vienna",
+            "ben": "Bern"
+        },
+        "country": {
+            "de": "Germany",
+            "au": "Austria",
+            "ch": "Swiss"
+        }
+    },
+    "dd_def": {
+        "1": {
+            "country": "de",
+            "city": "mch",
+            "street": "aa",
+            "name": "aa",
+            "vip": "true"
+        }
+    }
+}

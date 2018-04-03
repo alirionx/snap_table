@@ -1,0 +1,166 @@
+{
+    "table": "addresses",
+    "json_path": "json\/def_1.json",
+    "content": {
+        "1": {
+            "name": "country",
+            "type": "dd_cus",
+            "align": "left",
+            "width": "120px",
+            "hltxt": "Country",
+            "placeholder": "null",
+            "id": 1
+        },
+        "2": {
+            "name": "city",
+            "type": "dd_cus",
+            "align": "left",
+            "width": "120px",
+            "hltxt": "City",
+            "placeholder": "null",
+            "id": 2
+        },
+        "3": {
+            "name": "street",
+            "type": "input",
+            "align": "left",
+            "width": "",
+            "hltxt": "Street",
+            "placeholder": "Enter Street and number",
+            "id": 3
+        },
+        "4": {
+            "name": "name",
+            "type": "input",
+            "align": "left",
+            "width": "",
+            "hltxt": "Customer Name",
+            "placeholder": "Contact Name",
+            "id": 4
+        },
+        "5": {
+            "name": "private",
+            "type": "checkbox",
+            "align": "center",
+            "width": "",
+            "hltxt": "Private",
+            "placeholder": "null",
+            "id": 5
+        }
+    },
+    "def": {
+        "name": {
+            "type": "input",
+            "align": "left",
+            "width": "",
+            "hltxt": "Column Name",
+            "placeholder": ""
+        },
+        "type": {
+            "type": "dd_cus",
+            "align": "left",
+            "width": "",
+            "hltxt": "Field Type",
+            "placeholder": ""
+        },
+        "align": {
+            "type": "dd_cus",
+            "align": "left",
+            "width": "",
+            "hltxt": "Column Align",
+            "placeholder": ""
+        },
+        "width": {
+            "type": "input",
+            "align": "center",
+            "width": "100px",
+            "hltxt": "Column Width",
+            "placeholder": "e.g. 100px"
+        },
+        "hltxt": {
+            "type": "input",
+            "align": "left",
+            "width": "",
+            "hltxt": "Column Headline Text",
+            "placeholder": ""
+        },
+        "placeholder": {
+            "type": "input",
+            "align": "left",
+            "width": "",
+            "hltxt": "Field Placeholder",
+            "placeholder": ""
+        }
+    },
+    "dd_cus": {
+        "type": {
+            "": "please select",
+            "static": "static",
+            "input": "text input",
+            "checkbox": "checkbox",
+            "dd_cus": "Custom Dropdown",
+            "dd_fk": "Foreign Key Dropdown"
+        },
+        "align": {
+            "": "please select",
+            "left": "left",
+            "center": "center",
+            "right": "right"
+        }
+    },
+    "dd_cols": {
+        "name": "Column Name",
+        "key": "Dropdown Key",
+        "val": "Dropdown Value"
+    },
+    "dd_def": {
+        "1": {
+            "name": "city",
+            "key": "stg",
+            "val": "Stuttgart",
+            "id": 1
+        },
+        "2": {
+            "name": "city",
+            "key": "mch",
+            "val": "Munich",
+            "id": 2
+        },
+        "3": {
+            "name": "city",
+            "key": "hh",
+            "val": "Hamburg",
+            "id": 3
+        },
+        "4": {
+            "name": "country",
+            "key": "de",
+            "val": "Germany",
+            "id": 4
+        },
+        "5": {
+            "name": "country",
+            "key": "au",
+            "val": "Austria",
+            "id": 5
+        },
+        "6": {
+            "name": "country",
+            "key": "ch",
+            "val": "Swiss",
+            "id": 6
+        },
+        "7": {
+            "name": "city",
+            "key": "wn",
+            "val": "Vienna",
+            "id": 7
+        },
+        "8": {
+            "name": "city",
+            "key": "ben",
+            "val": "Bern",
+            "id": 8
+        }
+    }
+}
