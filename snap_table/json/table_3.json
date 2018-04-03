@@ -1,0 +1,42 @@
+{
+    "table": "countries",
+    "json_path": "json\/table_3.json",
+    "content": {
+        "1": {
+            "country_code": "au",
+            "country_name": "Austria",
+            "id": 1
+        },
+        "2": {
+            "country_code": "de",
+            "country_name": "Germany",
+            "id": 2
+        },
+        "3": {
+            "country_code": "ch",
+            "country_name": "Swiss",
+            "id": 3
+        },
+        "4": {
+            "country_code": "fr",
+            "country_name": "France",
+            "id": 4
+        }
+    },
+    "def": {
+        "country_code": {
+            "type": "input",
+            "align": "center",
+            "width": "",
+            "hltxt": "Country Code",
+            "placeholder": "2 chars"
+        },
+        "country_name": {
+            "type": "input",
+            "align": "left",
+            "width": "",
+            "hltxt": "Country Name",
+            "placeholder": ""
+        }
+    }
+}

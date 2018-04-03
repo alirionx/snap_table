@@ -1,0 +1,56 @@
+{
+    "table": "cities",
+    "json_path": "json\/table_2.json",
+    "content": {
+        "1": {
+            "city_name": "Munich",
+            "id": 1
+        },
+        "2": {
+            "city_name": "Stuttgart",
+            "id": 2
+        },
+        "3": {
+            "city_name": "Frankfurt",
+            "id": 3
+        },
+        "4": {
+            "city_name": "Berlin",
+            "id": 4
+        },
+        "5": {
+            "city_name": "Vienna",
+            "id": 5
+        },
+        "6": {
+            "city_name": "Salzburg",
+            "id": 6
+        },
+        "7": {
+            "city_name": "Zurich",
+            "id": 7
+        },
+        "8": {
+            "city_name": "Bern",
+            "id": 8
+        },
+        "9": {
+            "city_name": "Bordeaux",
+            "id": 9
+        },
+        "10": {
+            "city_name": "Paris",
+            "id": 10
+        }
+    },
+    "def": {
+        "city_name": {
+            "type": "input",
+            "align": "left",
+            "width": "",
+            "hltxt": "Name of City",
+            "placeholder": ""
+        }
+    },
+    "dd_fk": []
+}

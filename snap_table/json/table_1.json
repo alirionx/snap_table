@@ -1,0 +1,82 @@
+{
+    "table": "addresses",
+    "json_path": "json\/table_1.json",
+    "content": {
+        "1": {
+            "country": "Germany",
+            "city": "Munich",
+            "street": "Funfair Drive",
+            "name": "The Highroller",
+            "vip": "true",
+            "id": 1,
+            "private": "false",
+            "stadt": "Munich"
+        },
+        "2": {
+            "country": "Austria",
+            "city": "Vienna",
+            "street": "Zircus Road",
+            "name": "Pennywise the Clown",
+            "vip": "true",
+            "id": 2,
+            "private": "false",
+            "stadt": "Stuttgart"
+        },
+        "3": {
+            "country": "Swiss",
+            "city": "Bern",
+            "street": "Matrix Square",
+            "name": "Mr Smith",
+            "vip": "",
+            "id": 3,
+            "private": "false",
+            "stadt": "Frankfurt"
+        },
+        "4": {
+            "country": "France",
+            "city": "Bordeaux",
+            "street": "Deep Web Boulevard",
+            "name": "Mr Robot",
+            "private": "true",
+            "stadt": "Frankfurt",
+            "id": 4
+        }
+    },
+    "def": {
+        "country": {
+            "type": "dd_fk",
+            "align": "left",
+            "width": "120px",
+            "hltxt": "Country",
+            "placeholder": "null"
+        },
+        "city": {
+            "type": "dd_fk",
+            "align": "left",
+            "width": "120px",
+            "hltxt": "City",
+            "placeholder": "null"
+        },
+        "street": {
+            "type": "input",
+            "align": "left",
+            "width": "",
+            "hltxt": "Street",
+            "placeholder": "Enter Street and number"
+        },
+        "name": {
+            "type": "input",
+            "align": "left",
+            "width": "",
+            "hltxt": "Customer Name",
+            "placeholder": "Contact Name"
+        },
+        "private": {
+            "type": "checkbox",
+            "align": "center",
+            "width": "",
+            "hltxt": "Private",
+            "placeholder": "null"
+        }
+    }
+}

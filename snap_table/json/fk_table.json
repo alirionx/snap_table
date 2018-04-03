@@ -1,0 +1,48 @@
+{
+    "table": "fk_table",
+    "json_path": "json\/fk_table.json",
+    "def": {
+        "id": {
+            "type": "static",
+            "align": "center",
+            "width": "60px",
+            "hltxt": "ID",
+            "placeholder": ""
+        },
+        "name": {
+            "type": "input",
+            "align": "left",
+            "width": "",
+            "hltxt": "FK Name",
+            "placeholder": "Name of the target Column"
+        },
+        "table": {
+            "type": "dd_cus",
+            "align": "left",
+            "width": "180px",
+            "hltxt": "Source Table",
+            "placeholder": ""
+        },
+        "column": {
+            "type": "input",
+            "align": "left",
+            "width": "",
+            "hltxt": "Source Column",
+            "placeholder": ""
+        }
+    },
+    "content": {
+        "1": {
+            "id": 1,
+            "name": "city",
+            "table": "2",
+            "column": "city_name"
+        },
+        "2": {
+            "id": 2,
+            "name": "country",
+            "table": "3",
+            "column": "country_name"
+        }
+    }
+}
