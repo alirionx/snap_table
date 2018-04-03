@@ -1,17 +1,17 @@
 
 //-------------------------------------------------------------
 
-	function snap_table_call( table_id , target_domid ){
+	function snap_table_call( table_id , target_domid , type ){
 		
 		//---------------------------
 		
 			window.snap_table_func_api = table_func_api;
 		
 		//---------------------------
-		
-			window.location.hash = hash_handler['set']( "snap_table_view" , "insert" );
+			
+			window.location.hash = hash_handler['set']( "snap_table_view" , type );
 			//window.location.hash = hash_handler['set']( "snap_table_id" , table_id );
-		
+			
 		//---------------------------
 		
 			window.snap_table_id = table_id; 
@@ -19,7 +19,7 @@
 		
 		//---------------------------
 		
-		view_call_fw['insert']();
+		view_call_fw[ type ]();
 	}
 
 //---------------------------------------------------------------
@@ -42,10 +42,29 @@
 
 			form_post( table_insert_api , formData , view_build["insert"] );
 	}
+
+//---------------------------------------------------------------
+
+	view_call_fw['insert_ro'] = function (){
+		
+		//---------------------------
+		
+			var table_insert_api = window.snap_table_func_api ;
+		
+		//---------------------------
+		
+		var table_id 		= window.snap_table_id;
+		var target_domid 	= window.snap_table_target_domid;
+		
+		var formData = new FormData();
+			formData.append("function", "snap_table_call" );
+			formData.append("table_id", table_id );
+			formData.append("target_domid", target_domid );
+
+			form_post( table_insert_api , formData , view_build["insert_ro"] );
+	}
 	
 //-------------------------------------------------------------
-	
-	if( view_build == undefined ){ var view_build = [];  }
 	
 	view_build["insert"] = function( obj ){
 		
@@ -154,7 +173,6 @@
 								}
 							}
 			}
-			
 		//---------------------------
 				
 			var row_add = table_build["row_add"]( json_path , json_part , json_def_part );
@@ -162,14 +180,81 @@
 			
 		//---------------------------
 		
+			target_domel.appendChild(def_table);
+			
+		//---------------------------
+	}
+	
+//-------------------------------------------------------------
+	
+	view_build["insert_ro"] = function( obj ){
 		
+		//---------------------------
+		
+			var table_insert_api = window.snap_table_func_api ;
+		
+		//---------------------------
+			
+			var json_path 		= obj.json_path;
+			var json_part 		= "content";
+			var json_def_part 	= "def";
+			
+		//---------------------------
+		
+			var content = sort_obj( obj.content );
+			//var content = obj.content;
+			
+		//---------------------------
+		
+			var target_domel = document.getElementById( obj.target_domid );
+				target_domel.innerHTML = "";
+		
+		//---------------------------
+			
+			var def_table = document.createElement("TABLE");
+				def_table.classList.add("snap_table");
+		
+		//---------------------------
+			
+			var def = obj.def;
+			var table_hl = table_build["headline"]( def , false );
+			def_table.appendChild( table_hl );
+			
+		//---------------------------
+			
+			for( var prop in content ){
+				
+				//---------------
+					var table_tr = document.createElement("TR");
+					def_table.appendChild( table_tr );
+				//---------------
+					
+					for( var def_val in def ){
+						
+						//---------------
+						
+							var cell_type 	= "static";
+							var cell_align 	= def[def_val].align;
+							var cell_width 	= def[def_val].width;
+							var cell_val 	= content[prop][def_val];
+							var cell_ph 	= def[def_val].placeholder;
+							var row_id 		= content[prop].id;
+							var col_name 	= def_val;
+							
+							var dd_ary		= "";
+							
+							var table_td = table_build[ cell_type ]( cell_align , cell_width , cell_val , cell_ph , json_path , json_part , row_id , col_name , dd_ary );
+							table_tr.appendChild(table_td);
+						
+						//---------------
+					}
+			}
 		//---------------------------
 		
 			target_domel.appendChild(def_table);
 			
 		//---------------------------
-		
 	}
 	
 //-------------------------------------------------------------
-	
+

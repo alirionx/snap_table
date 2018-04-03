@@ -4,43 +4,53 @@
     "content": {
         "1": {
             "city_name": "Munich",
-            "id": 1
+            "id": 1,
+            "city_population": "1.545.000"
         },
         "2": {
             "city_name": "Stuttgart",
-            "id": 2
+            "id": 2,
+            "city_population": "630.000"
         },
         "3": {
             "city_name": "Frankfurt",
-            "id": 3
+            "id": 3,
+            "city_population": "737.000"
         },
         "4": {
             "city_name": "Berlin",
-            "id": 4
+            "id": 4,
+            "city_population": "3.574.000"
         },
         "5": {
             "city_name": "Vienna",
-            "id": 5
+            "id": 5,
+            "city_population": "1.867.000"
         },
         "6": {
             "city_name": "Salzburg",
-            "id": 6
+            "id": 6,
+            "city_population": "153.000"
         },
         "7": {
             "city_name": "Zurich",
-            "id": 7
+            "id": 7,
+            "city_population": "403.000"
         },
         "8": {
             "city_name": "Bern",
-            "id": 8
+            "id": 8,
+            "city_population": "143.000"
         },
         "9": {
             "city_name": "Bordeaux",
-            "id": 9
+            "id": 9,
+            "city_population": "250.000"
         },
         "10": {
             "city_name": "Paris",
-            "id": 10
+            "id": 10,
+            "city_population": "2.206.000"
         }
     },
     "def": {
@@ -49,6 +59,13 @@
             "align": "left",
             "width": "",
             "hltxt": "Name of City",
+            "placeholder": ""
+        },
+        "city_population": {
+            "type": "input",
+            "align": "right",
+            "width": "",
+            "hltxt": "Population",
             "placeholder": ""
         }
     },
