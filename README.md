@@ -21,12 +21,12 @@ chown -R www-data:www-data snap_table<br>
 
 &lt;head&gt;<br>
 	<br>
-	&lt;script type="text/javascript" src="snap_table/table_functions.js"&gt;&lt;/script&gt;;<br>
+	&lt;script type="text/javascript" src="snap_table/table_functions.js"&gt;&lt;/script&gt;<br>
 	&lt;script type="text/javascript" src="snap_table/app_base.js"&gt;&lt;/script&gt;<br>
 	&lt;script type="text/javascript" src="snap_table/table_insert.js"&gt;&lt;/script&gt;<br>
 	&lt;script type="text/javascript" src="snap_table/hashhandler.js"&gt;&lt;/script&gt;<br>
 	<br>
-	&lt;link rel="stylesheet" href="snap_table_cus.css"&gt;
+	&lt;link rel="stylesheet" href="snap_table/snap_table_cus.css"&gt;
 	<br><br>
 &lt;/head&gt;<br>
 <br>
